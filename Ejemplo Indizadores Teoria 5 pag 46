@@ -27,6 +27,12 @@ class Familia {
       else if (i == 2) return Hijo;
       else return null;
     }
+		set
+		{
+			if (i == 0) Padre = value;
+			else if (i == 1) Madre = value;
+			else if (i == 2) Hijo = value;
+		}
   }
 }
 
