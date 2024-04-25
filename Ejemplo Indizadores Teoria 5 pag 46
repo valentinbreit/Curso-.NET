@@ -40,8 +40,8 @@ class Familia {
 --- program.cs ---
 Familia f = new Familia();
 f.Padre = new Persona("Marcos",45);
-f.Madre = new Persona("Carla",38);
-f.Hijo = new PErsona("Juan",20);
+f[1] = new Persona("Carla",38);
+f[2] = new PErsona("Juan",20);
 for (int i = 0; i < 3; i++){
   f[i]?.Imprimir();
 }
