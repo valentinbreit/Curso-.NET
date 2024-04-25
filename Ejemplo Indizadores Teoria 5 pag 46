@@ -1,0 +1,41 @@
+PAG 46
+--- Persona.cs ---
+class Persona {
+	public int Edad { get; }
+	public string Nombre { get; }
+	public Persona (string nombre, int edad)
+	{
+		Nombre = nombre;
+		Edad = edad;
+	}
+
+	public void Imprimir() => Console.WriteLine($"{Nombre} {Edad}");
+}
+
+--- Familia.cs ---
+class Familia { 
+	public Persona? Padre { get; set;}
+	public Persona? Madre { get; set;}
+	public Persona? Hijo { get; set;}
+
+  public Persona? this[int i]
+  {
+    get
+    {
+      if (i == 0) return Padre;
+      else if (i == 1) return Madre;
+      else if (i == 2) return Hijo;
+      else return null;
+    }
+  }
+}
+
+
+--- program.cs ---
+Familia f = new Familia();
+f.Padre = new Persona("Marcos",45);
+f.Madre = new Persona("Carla",38);
+f.Hijo = new PErsona("Juan",20);
+for (int i = 0; i < 3; i++){
+  f[i]?.Imprimir();
+}
