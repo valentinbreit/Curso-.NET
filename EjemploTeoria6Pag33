@@ -1,0 +1,27 @@
+------------- Program.cs ------------
+for (int i = 0; i < 20; i++) 
+{
+ new ClaseC();
+}
+
+------------- ClaseA.cs ------------
+class ClaseA {
+ static int s_id=1;
+ protected int Id;
+ public ClaseA() => Id = s_id++;
+ ~ClaseA() => Console.WriteLine($"Fin A {Id}");
+}
+
+------------- ClaseB.cs ------------
+class ClaseB : ClaseA {
+ ~ClaseB() => Console.WriteLine($"Fin B {Id}");
+}
+
+------------- ClaseC.cs ------------
+class ClaseC : ClaseB {
+ int[] vector = new int[100_000];
+ ~ClaseC() {
+ Console.WriteLine("-----");
+ Console.WriteLine($"Fin C {Id}");
+ }
+}
