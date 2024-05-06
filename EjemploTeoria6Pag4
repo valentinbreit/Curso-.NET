@@ -1,0 +1,50 @@
+--- Codificamos el enumerativo TipoAuto ---
+namespace Teoria6;
+
+enum TipoAuto
+{
+  Familiar,
+  Deportivo,
+  Camioneta
+}
+
+
+--- Codificamos la clase auto ---
+// por el momento vamos a usar campos publicos, luego lo solucionaremos
+namespace Teoria6;
+
+class Auto
+{
+  public string Marca = "";
+  public int Modelo;
+  public TipoAuto Tipo;
+  public void Imprimir() => Console.WriteLine($"{Marca} {Modelo}");
+}
+
+
+--- Codificamos la clase Colectivo ---
+// por el momento vamos a usar campos publicos, luego lo solucionaremos
+namespace Teoria6;
+
+class Colectivo
+{
+  public string Marca = "";
+  public int Modelo;
+  public int CantPasajeros;
+  public void Imprimir() => Console.WriteLine($"{Marca} {Modelo}");
+}
+
+
+--- Codificamos nuestro Program.cs ---
+usign Teoria6;
+
+Auto a = new Auto();
+Colectivo c = new Colectivo();
+a.Marca = "Ford";
+a.Modelo = 2010;
+c.Marca = "Mercedes";
+c.Modelo = 2020;
+c.CantPasajeros = 30;
+a.Tipo = Tipo.Auto.Deportivo;
+a.Imprimir();
+c.Imprimir();
