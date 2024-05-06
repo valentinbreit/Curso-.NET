@@ -1,0 +1,43 @@
+// Así debe quedar nuestro programa
+
+------------- Program.cs ------
+Auto a = new Auto("Ford", 2000, TipoAuto.Deportivo);
+Colectivo c = new Colectivo("Mercedes", 2010, 20);
+a.Imprimir(); c.Imprimir();
+
+
+------------- TipoAuto.cs ------
+enum TipoAuto { Familiar, Deportivo, Camioneta }
+
+
+------------- Automotor.cs ------
+class Automotor {
+ protected string Marca = "";
+ protected int Modelo;
+ public Automotor(string marca, int modelo) {
+ Marca = marca;
+ Modelo = modelo;
+ }
+ public virtual void Imprimir() => Console.WriteLine($"{Marca} {Modelo}");
+}
+
+
+------------ Auto.cs -----------
+class Auto : Automotor {
+ public TipoAuto Tipo;
+ public Auto(string marca, int modelo, TipoAuto tipo) : base(marca, modelo) => Tipo = tipo;
+ public override void Imprimir() {
+ Console.Write($"Auto {Tipo} ");
+ base.Imprimir();
+ }
+}
+
+
+------------- Colectivo.cs ------
+class Colectivo : Automotor {
+ public int CantPasajeros;
+ public Colectivo(string marca, int modelo, int cantPasajeros)
+ : base(marca, modelo) => CantPasajeros = cantPasajeros;
+ public override void Imprimir()
+ => Console.WriteLine($"{Marca} {Modelo} ({CantPasajeros} pasajeros)");
+}
