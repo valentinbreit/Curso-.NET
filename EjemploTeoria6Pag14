@@ -9,7 +9,8 @@ class Automotor
      Marca = marca;
      Modelo = modelo;
    }
-   
+
+  // nos aseguramos de que exista el constructor vacío, así cuando llamamos a construir las clases que lo heredan no se rompe nuestro código
   public Automotor()
    {
    }
