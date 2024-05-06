@@ -1,0 +1,44 @@
+// Modificamos la clase automotor
+
+--- clase automotor ---
+class Automotor
+{
+  ...
+  
+  public virtual int Modelo
+  {
+    get => _modelo;
+    protected set => _modelo = (value < 2005) ? 2005 : value;
+  }
+
+  ...
+}
+
+// Codificamos la propiedad modelo de colectivo y redefinimos el accesor set
+
+--- Colectivo.cs ---
+
+class Colectivo : Automotor
+{
+
+  ...
+  
+  public override int Modelo
+  {
+    protected set => base.Modelo = (value < 2015) ? 2015 : value;
+  }
+  
+  ...
+}
+
+
+// modificamos program.cs
+--- program.cs ---
+
+Auto a = new Auto("Ford", 2000, TipoAuto.Deportivo);
+Colectivo c = new Colectivo("Mercedes", 2010, 20);
+a.Imprimir();
+c.Imprimir();
+Console.WriteLine(a.Marca + " " + a.Modelo);
+Console.WriteLine(c.Marca + " " + c.Modelo);
+
