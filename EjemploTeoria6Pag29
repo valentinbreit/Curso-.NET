@@ -1,0 +1,17 @@
+// Modificamos la clase Automotor
+--- Automotor.cs ---
+abstract class Automotor
+{
+ public abstract void HacerMantenimiento();
+ public abstract DateTime FechaService { get; set; } // Mucha atención aquí, no debemos confundir con propiedades auto-implementadas, la clave para saberlo es el modificador
+ public abstract double PrecioDeVenta { get; }       // abstract, debemos leer cuidadosamente las líneas de código
+ public string Marca { get; }
+ private int _modelo;
+ 
+ . . .
+}
+
+// Con esta modificiación Auto y Colectivo deben implementar (hacer override):
+// método HacerMantenimiento();
+// bloque get de la propiedad PrecioDeVenta
+// bloques get y set de la propiedad FechaService
