@@ -1,0 +1,28 @@
+// Agregamos la clase Automotor con los miembros cómunes Marca, Modelo e  Imprimir()
+--- Clase Automotor ---
+namespace Teoria6;
+
+class Automotor{
+  public string Marca = "";
+  public int Modelo;
+  public void Imprimir() => Console.WriteLine($"{Marca} {Modelo}");
+}
+
+
+// Derivamos a Auto y Colectivo de Automotor, borrando los miembros Marca,Modelo e Imprimir()
+--- Clase auto ---
+namespace Teoria6;
+
+class Auto: Automotor
+{
+  public TipoAuto Tipo;
+}
+
+
+--- Clase colectivo ---
+namespace Teoria6;
+
+class Colectivo: Automotor
+{
+  public int CantPasajeros;
+}
