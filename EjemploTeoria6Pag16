@@ -1,0 +1,33 @@
+// Agregramos a clase auto su nuevo constructor
+--- Clase Auto --- 
+...
+
+public Auto (string marca, int modelo, TipoAuto Tipo) : base(marca, modelo)
+{
+  this.Tipo = tipo;
+}
+
+...
+
+
+// Agregamos a clase colectivo su nuevo constructor
+--- Clase Colectivo ---
+...
+
+public Colectivo (string marca, int modelo, int cantPasajeros) : base(marca, modelo)
+{
+  this.CantPasajeros = cantPasajeros;
+}
+
+...
+
+
+// Modificamos Program.cs y ejecutamos
+--- Program.cs ---
+
+using Teoria6;
+
+Auto a = new Auto("Ford", 2000, TipoAuto.Deportivo);
+Colectivo c = new Colectivo("Mercedes", 2010, 20);
+a.Imprimir();
+c.Imprimir();
