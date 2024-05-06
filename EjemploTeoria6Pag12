@@ -1,1 +1,16 @@
+// Códificamos el método Imprimir () de la clase Auto invocando el método de automotor
 
+--- Clase Auto ---
+
+namespace Teoria6;
+
+class Auto: Automotor
+{
+  public TipoAuto Tipo;
+
+  public override void Imprimir() 
+  {
+    Console.Write($"Auto {Tipo}");
+    base.Imprimir(); // esto invoca el método imprimir definido en la clase Automotor
+  }
+}
