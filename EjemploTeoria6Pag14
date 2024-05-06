@@ -1,0 +1,35 @@
+------------ Automotor.cs ------
+class Automotor 
+{ 
+   public string Marca = "";
+   public int Modelo;
+   
+   public Automotor(string marca, int modelo)
+   {
+     Marca = marca;
+     Modelo = modelo;
+   }
+   
+  public Automotor()
+   {
+   }
+ 
+   public virtual void Imprimir()  => Console.WriteLine($"{Marca} {Modelo}");
+}
+
+
+------------ Auto.cs -----------
+class Auto : Automotor {
+ public TipoAuto Tipo;
+ public override void Imprimir()
+ {
+   Console.Write($"Auto {Tipo} ");
+   base.Imprimir();
+ }
+}
+------------- Colectivo.cs ------
+class Colectivo : Automotor {
+ public int CantPasajeros;
+
+ public override void Imprimir() => Console.WriteLine($"{Marca} {Modelo} ({CantPasajeros} pasajeros)");
+}
