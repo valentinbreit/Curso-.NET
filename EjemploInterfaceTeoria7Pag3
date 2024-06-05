@@ -1,0 +1,54 @@
+----------- Persona.cs ------------
+namespace Teoria7;
+class Persona
+{
+ protected string Nombre = "";
+}
+----------- Empleado.cs ------------
+namespace Teoria7;
+class Empleado : Persona
+{
+ public Empleado(string nombre)
+ => Nombre = nombre;
+ public void Imprimir()
+ => Console.WriteLine($"Soy el empleado {Nombre}");
+}
+
+---------- Automotor.cs -----------
+namespace Teoria7;
+class Automotor
+{
+ protected string Marca = "";
+}
+------------- Moto.cs --------------
+namespace Teoria7;
+class Moto : Automotor
+{
+ public Moto(string marca)
+ => Marca = marca;
+ public void Imprimir()
+ => Console.WriteLine($"Soy una moto {Marca}");
+}
+
+----- Main -------
+using Teoria7;
+object[] vector = new object[] {
+ new Moto("Zanella"),
+ new Empleado("Juan"),
+ new Moto("Gilera")
+ };
+
+// veremos que esta solucion es poco efectiva más adelante
+foreach (object o in vector)
+{
+  if (o is Empleado e)
+   {
+     e.Imprimir();
+   }
+   else if (o is Moto m)
+   {
+     m.Imprimir();
+   }
+}
+
+
