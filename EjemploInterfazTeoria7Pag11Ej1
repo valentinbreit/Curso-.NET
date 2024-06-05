@@ -1,0 +1,9 @@
+Rombo r1 = new Rombo();
+Figura r2 = new Rombo();
+IAgrandable r3 = new Rombo();
+IImprimible r4 = new Rombo();
+
+r3.TamañoMaximo = 100;
+r3.Agrandar(1.2);
+r4.Imprimir();
+(r3 as IImprimible)?.Imprimir();
