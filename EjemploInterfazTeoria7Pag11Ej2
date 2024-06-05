@@ -1,0 +1,17 @@
+// Ambas opciones son igual de válidas
+object o;
+
+// En versiones anteriores al C#7.0
+...
+if (o is IImprimible)
+{
+ (o as IImprimible).Imprimir(); 
+} 
+. . .
+
+// En la version c#7.0 se agrega una facilidad
+if (o is IImprimible imp)
+{
+ imp.Imprimir(); 
+} 
+. . . 
