@@ -1,0 +1,8 @@
+string archivo = "/Documentos/notas.txt";
+Console.WriteLine(Path.GetFullPath(archivo));
+Console.WriteLine(Path.GetFileName(archivo));
+Console.WriteLine(Path.GetExtension(archivo));
+Console.WriteLine(Path.GetDirectoryName(archivo));
+Console.WriteLine(Path.ChangeExtension(archivo, "doc"));
+Console.WriteLine(Path.GetFileNameWithoutExtension(archivo));
+Console.WriteLine(Path.GetTempPath());
