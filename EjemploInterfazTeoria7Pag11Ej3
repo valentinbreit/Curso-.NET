@@ -1,0 +1,10 @@
+IImprimible imp = new IImprimible(); // Esto no está permitido, porque estamos queriendo instanciar un objeto
+
+// En cambio lo siguiente si es válido
+IImprimible[] vector = new IImprimible[10];
+// Acá no instanciamos ningún 
+// objeto IImprimible. 
+// Los elementos que aĀreĀuemos al 
+// vector (inicialmente todos null) 
+// tendrán que implementar la 
+// interface IImprimible.
