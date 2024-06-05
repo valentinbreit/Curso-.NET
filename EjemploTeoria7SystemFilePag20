@@ -1,0 +1,31 @@
+----- Ejemplo 1 -----
+StreamReader sr = new StreamReader("fuente.txt");
+StreamWriter sw = new StreamWriter("destino.txt");
+string? linea;
+while (!sr.EndOfStream)
+{
+ linea = sr.ReadLine();
+ sw.WriteLine(linea);
+}
+sr.Close(); sw.Close();
+/// El método close() libera los recursos de manera explicita, invocando un metodo Dispose().
+
+
+----- Ejemplo 2 -------
+StreamReader? sr = null;
+StreamWriter? sw = null;
+try
+{
+ sr = new StreamReader("fuente.txt");
+ sw = new StreamWriter("destino.txt");
+ sw.Write(sr.ReadToEnd()); // aqui se hace todo el trabajo
+}
+catch (Exception e)
+{
+ Console.WriteLine(e.Message);
+}
+finally // recomendable proveer un manejo de excepciones y liberar los recursos con un bloque finally
+{
+ sr?.Dispose();
+ sw?.Dispose();
+}// podemos usar Dispose en vez de Close
