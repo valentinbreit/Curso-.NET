@@ -1,0 +1,28 @@
+interface IImprimible
+{
+ void Imprimir();
+}
+
+
+interface IAgrandable
+{
+ void Agrandar(double factor);
+ double TamañoMaximo { get; set; }
+}
+
+
+class Rombo : Figura, IImprimible, IAgrandable
+{
+  // Debe ser implementada si o si por la interfaz IImprimible
+  public void Imprimir()
+  { . . . }
+
+  // deben ser implemetada si o si por la interfaz IAgrandable
+  public void Agrandar(double factor)
+  { . . . }
+  public double TamañoMaximo
+  {
+  get { . . . }
+  set { . . . }
+  }
+}
