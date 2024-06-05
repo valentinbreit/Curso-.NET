@@ -1,0 +1,8 @@
+string stDir = Environment.CurrentDirectory;
+DirectoryInfo dirInfo = new DirectoryInfo(stDir);
+FileInfo[] archivos = dirInfo.GetFiles();
+foreach (FileInfo archivo in archivos)
+{
+ string st = $"{archivo.Name} {archivo.Length} bytes";
+ Console.WriteLine(st);
+}
