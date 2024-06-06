@@ -1,0 +1,15 @@
+// Si son distintos tipos los usings se pueden anidar
+try
+{
+ using (StreamReader sr = new StreamReader("fuente.txt"))
+ {
+   using (StreamWriter sw = new StreamWriter("destino.txt"))
+   {
+     sw.Write(sr.ReadToEnd());
+   }
+ }
+}
+catch (Exception e)
+{
+   Console.WriteLine(e.Message);
+}
