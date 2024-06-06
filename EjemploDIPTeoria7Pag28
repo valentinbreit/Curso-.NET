@@ -1,0 +1,30 @@
+ ------------Program.cs----------
+ using CalculoSimple;
+ Calculador calc = new Calculador();
+ calc.Calcular(3);
+
+
+
+ ------------Calculador.cs----------
+ namespace CalculoSimple;
+ class Calculador
+ {
+ Logger _logger = new Logger();
+ public void Calcular(int n)
+ {
+ int resul = (n + 5) * (n + 7);
+ _logger.Log($"Fin de Calculo - (resul={resul})");
+ }
+ }
+
+
+
+ ------------Logger.cs----------
+ namespace CalculoSimple;
+ class Logger
+ {
+ public void Log(string mensaje)
+ {
+ Console.WriteLine(mensaje);
+ }
+ }
