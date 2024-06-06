@@ -1,0 +1,27 @@
+namespace Almacen.Repositorios
+
+public class RepositorioProductoTXT: IRepositorioProducto
+{
+  readonly string _nombreArch = "productos.txt";
+
+  public void AgregarProducto(Producto producto)
+  {
+    using var sw = new StreamWriter(_nombreArch, true);
+    sw.WriteLine(producto.Id);
+    sw.WriteLine(producto.Nombre);
+  }
+
+  public List<Producto> ListarProductos()
+  {
+    var resultado = new List<Producto>();
+    using var sr = new StreamReader(_nombreArch);
+    while (!sr.EndOfStream)
+    {
+      var producto = new Producto();
+      producto.Id = int.Parse(sr.ReadLine() ?? "");
+      producto.Nombre = sr.ReadLine() ?? "";
+      resultado.Add(producto);
+    }
+    return resultado;
+  }
+}
