@@ -1,0 +1,21 @@
+--- Funcion.cs ---
+namespace Teoria8;
+delegate int Funcion(int n);
+
+
+--- Auxiliar.cs ----
+namespace Teoria8;
+class Auxiliar
+{
+  public void Procesar()
+  {
+    Funcion f;
+    f = SumaUno;
+    Console.WriteLine(f(10));
+    f = SumaDos;
+    Console.WriteLine(f(10));
+  }
+
+  int SumaUno(int n) => n + 1;
+  int SumaDos(int n) => n + 2;
+}
