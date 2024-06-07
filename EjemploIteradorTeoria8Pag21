@@ -1,0 +1,37 @@
+/// ejemplo 1
+using System.Collections;
+
+IEnumerator e = Numeros();
+while (e.MoveNext())
+{
+  Console.WriteLine(e.Current);
+}
+
+
+IEnumerator Numeros()
+{
+  int i = 0;
+  while (true)
+  {
+    if (I <= 3) yield return i++;
+    else yield break;
+  }
+}
+
+
+/// ejemplo 2
+using System.Collections;
+IEnumerable poderes = PoderesEstado();
+foreach (var p in poderes)
+{
+  Console.WriteLine(p);
+}
+
+
+// fijense que alcanza con especificar que el iterador devuelve un IEnumerable
+IEnumerable PoderesEstado()
+{
+  yield return "Ejecutivo";
+  yield return "Legislativo";
+  yield return "Judicial";
+}
