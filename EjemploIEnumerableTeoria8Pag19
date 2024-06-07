@@ -1,3 +1,5 @@
+/// Esta parte no se copia, es para que vean como es el cuerpo normal de un IEnumerator
+----- IEnumarator -----
 namespace System.Collections
 {
   public interface IEnumerator
@@ -6,4 +8,42 @@ namespace System.Collections
     bool MoveNext();
     void Reset();
   }
+}
+
+
+// Apartir de acá se copia
+---- Enumeradorestaciones.cs ------
+using System.Collections;
+class EnumeradorEstaciones : IEnumerator
+{
+  private string actual = "Inicio";
+
+  public void Reset() => actual = "Inicio";
+
+  public object Current => (actual == "Inicio" || actual == "Fin") ? throw new InvalidOperationException() : actual;
+
+  public bool MoveNext()
+  {
+    switch(actual)
+    {
+      case "Inicio": actual = "verano"; break;
+      case "verano": actual = "otoño"; break;
+      case "otoño": actual = "invierno"; break;
+      case "invierno": actual = "primavera"; break;
+      case "primavera": actual = "fin"; break;
+    }
+    return (actual != "Fin");
+  }
+}
+
+
+
+--- program.cs -----
+using System.Collections;
+
+IEnumerator e = new EnumeradorEstaciones();
+
+while (e.MoveNext())
+{
+  Console.WriteLine(e.Current);
 }
