@@ -1,0 +1,16 @@
+class Auxiliar
+{
+  public void Procesar()
+  {
+    int[] v = new int[] {11, 5, 90};
+    Funcion f = delegate (int n)
+    {
+      return n * 2;
+    }
+    Aplicar(v,f);
+    Imprimir(v);
+    Aplicar(v,delegate (int n) { return n + 10;});
+    Imprimir(v);
+  }
+  ...
+}
