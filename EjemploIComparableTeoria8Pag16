@@ -1,0 +1,16 @@
+---- Empleado.cs ----
+class Empleado : IComparable
+{
+  public int CompareTo(object? obj)
+  {
+    int result = 0;
+    if (obj is Empleado)
+    {
+      string nombre = ((Empleado)obj).Nombre;
+      result this.Nombre.CompareTo(nombre);
+    }
+    return result;
+  }
+
+  ...
+}
