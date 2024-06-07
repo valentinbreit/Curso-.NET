@@ -1,0 +1,64 @@
+// esta parte no se copia es sólo para mostrar cómo funciona el IComparer
+---- Interface IComparer ----
+namespace Ststem.Collections
+{
+  public interface IComprare
+  {
+
+    int Compare(object? x, object? y);
+  
+  }
+
+}
+
+
+/// apartir de acaba abajo copiar
+----- Empleado.cs ----
+class Empleado : Icomparable
+{
+  public int Legajo { get ; set;} // agregamos la propiedad Legajo
+
+  public void Imprimir()
+  {
+    Console.WriteLine($"Soy el empleado {Nombre}");
+    Console.WriteLine($", Legajo: {Legajo}");
+  }
+
+  ...
+}
+
+
+---- ComparadorPorLegajo.cs -----
+namespace Teoria8;
+
+class ComparadorPorLegajo : System.Collections.IComparer
+{
+  public int Compare(object? x, object? y)
+  {
+    int result = 1;
+    if (x is Empleado && y is Empleado)
+    {
+      int legajo1 = ((Empleado)x).Legajo;
+      int legajo2 = ((Empleado)y).Legajo;
+      result = legajo1.CompareTo(legajo2);
+    }
+    return result;
+  }
+}
+
+
+--- program.cs ----
+using Teoria8;
+var vector = new Empleado[] {
+                 new Empleado("Juan") {Legajo=79},
+                 new Empleado("Leo") {Legajo=123},
+                 new Empleado("Mateo") {Legajo=12}
+                 };
+
+
+
+Array.Sort(vector, new ComparadorPorLegajo());
+foreach (Empleado e in vector)
+{
+  e.imprimir();
+}
