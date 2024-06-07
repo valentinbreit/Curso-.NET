@@ -1,0 +1,13 @@
+class Auxiliar
+{
+  public void Procesar()
+  {
+    int[] v = new int[] { 11, 5, 90};
+    Aplicar(v, n => n * 2);
+    Imprimir(v);
+    Aplicar(v, n => n + 10);
+    Imprimir(v);
+  }
+
+  ...
+}
