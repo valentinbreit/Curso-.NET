@@ -3,6 +3,7 @@ namespace Teoria8;
 delegate int Funcion(int n);
 
 
+// forma 1 sin invocación explicita
 --- Auxiliar.cs ----
 namespace Teoria8;
 class Auxiliar
@@ -14,6 +15,25 @@ class Auxiliar
     Console.WriteLine(f(10));
     f = SumaDos;
     Console.WriteLine(f(10));
+  }
+
+  int SumaUno(int n) => n + 1;
+  int SumaDos(int n) => n + 2;
+}
+
+
+// forma 2 con invocación explicita (Invoke)
+--- Auxiliar.cs ----
+namespace Teoria8;
+class Auxiliar
+{
+  public void Procesar()
+  {
+    Funcion f;
+    f = SumaUno;
+    Console.WriteLine(f.Invoke(10));
+    f = SumaDos;
+    Console.WriteLine(f.Invoke(10));
   }
 
   int SumaUno(int n) => n + 1;
