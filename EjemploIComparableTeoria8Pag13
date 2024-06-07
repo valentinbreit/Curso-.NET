@@ -1,0 +1,29 @@
+--- empleado.cs ---
+namespace Teori8;
+
+class Empleado
+{
+  public string Nombres { get; private set}
+  public Empleado(string nombre)
+  {
+    Nombre = nombre;
+  }
+  public void Imprimir() => Console.WriteLine($"Soy el empleado {Nombre}");
+}
+
+
+--- program.cs ---
+using Teoria8;
+
+var vector = new Empleado[] {
+                  new Empleado("Juan").
+                  new Empleado("Adriana"),
+                  new Empleado("Diego")
+            }
+
+Array.Sort(vector);
+
+foreach (Empleado e in vector)
+{
+  e.Imprimir();
+}
