@@ -1,0 +1,19 @@
+--- par.cs ---
+class Par<T1, T2>
+{
+  public T1 A {get; private set; }
+  public T2 B {get; private set; }
+  public Par(T1 a, T2 b)
+  {
+    this.A = a;
+    this.B = b;
+  }
+}
+
+--- program.cs ---
+Par<int, int> par = new Par<int, int>(1, 15);
+Console.WriteLine($"A = {par.A} y B = {par.B}");
+Console.WriteLine($"A + B = {par.A + par.B} ");
+Par<string, double> par2 = new Par<string, double>("ABC", 123);
+Console.WriteLine($"A = {par2.A} y B = {par2.B}");
+Console.WriteLine($"A + B = {par2.A + par2.B} ");
