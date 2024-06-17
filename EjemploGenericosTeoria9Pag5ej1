@@ -1,0 +1,21 @@
+--- program.cs ---
+object o1, o2;
+int a = 17; int b = 23;
+o1 = a; o2 = b;
+Swap(ref o1, ref o2);
+a = (int)o1; b = (int)o2;
+Console.WriteLine($"a={a} y b={b}");
+
+string s1="hola"; string s2="mundo";
+o1 = s1; o2 = s2;
+Swap(ref o1, ref o2);
+s1 = (string) o1; s2 = (string)o2;
+Console.WriteLine($"s1 = {s1} y s2 = {s2}");
+
+
+void Swap(ref object i, ref object j)
+{
+  object auxiliar = i;
+  i = j;
+  j = auxiliar;
+}
