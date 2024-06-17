@@ -1,0 +1,19 @@
+---- funcion.cs -----
+delegate T2 Funcion<T1,T2>(T1 valor);
+
+
+
+---- program.cs ----
+Funcion<int, string> lambda1 = n => $"n = {n}";
+Function<string int> lambda2 = st => st.length;
+Function<int[],double> f  = Promedio;
+Console.WriteLine(lambda1(12));
+Console.WriteLine(lambda2("Hola Mundo!"));
+Console.WriteLine(f(new int[]{1,2,3,4,5}));
+
+double Promedio (int[] vec)
+{
+  int suma = 0;
+  foreach(int i in vector) suma+=i;
+  return suma/vector.Length;
+}
