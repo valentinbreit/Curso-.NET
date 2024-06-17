@@ -1,0 +1,7 @@
+List<int> lista = new List<int>() { 3, 6, 8 };
+List<string> listaMeses = lista.ConvertAll<string>(NroToNombre);
+listaMeses.ForEach(st => Console.WriteLine(st));
+string NroToNombre(int i) {
+ DateTime fecha = new DateTime(2000, i, 1);
+ return fecha.ToString("MMMM");
+}
