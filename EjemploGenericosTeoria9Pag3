@@ -3,3 +3,12 @@ int a  = 17;
 int b = 23;
 Swap(ref a, ref b);
 Console.WriteLine($"a={a} y b={b}");
+
+
+
+void Swap(ref int i, ref int j)
+{
+  int auxiliar = i;
+  i = j;
+  j = auxiliar;
+}
