@@ -1,0 +1,2 @@
+List<string> lista = new List<string>() { "hola", "mundo" };
+lista.ForEach(st => Console.WriteLine(st));
