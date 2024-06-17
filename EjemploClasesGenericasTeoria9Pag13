@@ -1,0 +1,12 @@
+---- Par.cs ---- 
+class Par
+{
+  public int A {get; private set;}
+  public int B {get; private set;}
+
+  public Par(int a, int b)
+  {
+    this.A = a;
+    this.B = b;
+  }
+}
