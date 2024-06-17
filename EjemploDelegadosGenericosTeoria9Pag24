@@ -1,0 +1,8 @@
+List<string> dias = new List<string>() {
+ "lunes","martes","miércoles","jueves","viernes"
+ };
+string? st = dias.Find(st => st[0] == 'm');
+Console.WriteLine($"Empieza con m: {st}");
+Console.WriteLine("Tienen 6 letras:");
+List<string> lista = dias.FindAll(st => st.Length == 6);
+lista.ForEach(st => Console.WriteLine(" " + st));
