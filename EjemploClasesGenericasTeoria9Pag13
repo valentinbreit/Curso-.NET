@@ -10,3 +10,10 @@ class Par
     this.B = b;
   }
 }
+
+
+
+---- program.cs ----
+Par p = new Par(1,15);
+Console.WriteLine($"A = {par.A} y B = {par.B}");
+Console.WriteLine($"A + B = {par.A + par.B} "); 
