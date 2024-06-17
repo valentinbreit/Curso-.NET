@@ -1,0 +1,17 @@
+---- program.cs ----
+int a = 17;
+int b = 23;
+Swap<int>(ref a, ref b);
+Console.WriteLine($"a={a} y b={b}");
+string s1 = "hola";
+string s2 = "mundo";
+Swap<string>(ref s1, ref s2);
+Console.WriteLine($"s1={s1} y s2={s2}");
+
+
+Swap<T>(ref T i, ref T j)
+{
+  T auxiliar = i;
+  i = j;
+  j = auxiliar;
+}
