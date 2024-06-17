@@ -1,0 +1,19 @@
+--- program.cs ---
+dynamic a = 17;
+dynamic b = 23;
+Swap(ref a, ref b);
+Console.WriteLine($"a={a} y b={b}");
+dynamic s1 = "hola";
+dynamic s2 = "mundo";
+Swap(ref s1, ref s2);
+Console.WriteLine($"s1={s1} y s2={s2}");
+
+
+
+
+void Swap(ref dynamic i, ref dynamic j) 
+{
+   dynamic auxi = i;
+   i = j;
+   j = auxi;
+}
