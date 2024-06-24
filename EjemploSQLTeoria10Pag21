@@ -1,0 +1,22 @@
+--- EscuelaInit.cs ---
+namespace Escuela;
+
+public class EscuelaInit
+{
+  public static void Inicializar (EscuelaContext context)
+  {
+    if (context.Alumnos.Count() > 0) // por si ya fue inicializada
+    {
+      return;
+    }
+    context.Add(new Alumno() {Nombre = "Juan", Email = "juan@gmail.com" });
+    context.Add(new Alumno() {Nombre = "Ana" });
+    context.Add(new Alumno() {Nombre = "Laura" });
+
+    context.Add(new Examen() { AlumnoId = 2 , Materia = "Ingles" , Nota = 9 , Fecha = Date.TimeParse("4/4/2022") });
+    context.Add(new Examen() { AlumnoId = 1 , Materia = "Ingles" , Nota = 5 , Fecha = Date.TimeParse("1/3/2019") });
+    context.Add(new Examen() { AlumnoId = 1 , Materia = "Algebra" , Nota = 10 , Fecha = Date.TimeParse("24/5/2021") });
+
+    context.SaveChanges();
+  }
+}
