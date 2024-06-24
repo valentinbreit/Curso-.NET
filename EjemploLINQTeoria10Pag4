@@ -1,0 +1,23 @@
+--- program.cs ---
+var numeros = new List<int>() {1, 10, 7, 3, 11};
+Mostrar(numeros);
+
+// Where, nos va a mostrar los elementos que cumplan la condicion
+var mayoresA5 = numeros.Where(n => n > 5);
+Mostrar(mayoresA5);
+
+// Reverse, nos va a mostrar la lista al revés
+var reversa = mayoresA5.Reverse();
+Mostrar(reversa);
+
+// OrderBy, nos muestra la lista ordenada por un orden dado
+var ordenada = reverso.OrderBy(n => n);
+Mostrar(ordenada);
+
+// Sum, suma todos los elementos de una lista
+var sumados = ordenados.Sum();
+
+// Average, nos muestra el promedio de una lista de elementos
+var promedioLista = ordenados.Average();
+
+Console.WriteLine($"Suma = {sumados} , promedio = {promedioLista:0.00}");
