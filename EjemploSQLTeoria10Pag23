@@ -1,0 +1,20 @@
+--- program.cs ---
+
+using Escuela;
+
+using (var context = new EscuelaContext())
+{
+  // usamos LINQ para realizar consultas
+  var query = context.Alumnos.Join(context.Examenes,
+                                  a => a.Id,
+                                  e => e.AlumnoId,
+                                  (a,e) => new { Alumno = a.Nombre,
+                                                 Materia = e.Materia,
+                                                 Nota = e.Nota
+                                               });
+
+  foreach (var obj in query)
+  {
+    Console.WriteLine(obj);
+  }
+}
