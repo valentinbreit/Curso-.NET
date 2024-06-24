@@ -1,0 +1,21 @@
+--- Program.cs ---
+
+using Microsoft.EntityFrameworkCore;
+using Escuela;
+
+using (var db = new EscuelaContext())
+{
+  Alumno nuevo = new Alumno() { Nombre = "Andrés",
+                                Examenes = new List<Examen>() { new Examen() {Materia="Lengua", Nota=8, Fecha = DateTime.Parse("10/8/2022")},
+                                                                new Examen() {Materia="Lengua", Nota=8, Fecha = DateTime.Parse("10/8/2022")}
+                                                              }
+                              };
+  db.Add(nuevo);
+  db.SaveChanges();
+
+  foreach (Alumno a in db.Alumnos.Include(a => a.Examenes))
+  {
+    Console.WriteLine(a.Nombre);
+    a.Examenes?.ToList().Foreach(e => Console.WriteLine($" - {e.Materia} {e.Nota}");
+  }
+}
