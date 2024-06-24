@@ -1,0 +1,19 @@
+--- EscuelaContext.cs ---
+namespace Escuela;
+
+using Microsoft.EntityFrameworkCore; 
+
+public class EscuelaContext : DbContext
+{
+  // como alumnos y examenes los inicializa entity framework, con esto podemos evitar 
+  // warnings del compilador desabilitando el contexto nullable en esta seccion
+  #nullable disable
+  public DbSet<Alumno> Alumnos { get; set; }
+  public DbSet<Examen> Examenes { get; set; }
+  #nullable disable
+
+  protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
+  {
+    optionsBuilder.UseSqlite("data source=Escuela.sqlite");
+  }
+}
