@@ -1,0 +1,11 @@
+--- Alumno.cs ---
+namespace Escuela;
+
+public class Alumno
+{
+  public int Id { get; set; }
+  public string Nombre { get; set; } = "";
+  public string? Emal { get; set;}
+
+  public List<Examen>? Examenes { get; set: } //esta es la propiedad de navegación
+}
