@@ -1,0 +1,44 @@
+--- program.cs --- // opción 1
+int[] vector = new int[] {1, 2, 3, 4, 5};
+IEnumerable<int> secuencia = vector.Select(n => n * 2);
+Mostrar(secuencia);
+
+List<string> lista = new List<string>() {"uno", "dos", "tres"};
+IEnumerable<string> secuencia1 = lista.Select(st => "(" + st.ToUpper() + ")");
+Mostrar(secuencia1);
+
+IEnumerable<int> secuencia2 = secuencia1.Select( st => st.Length);
+Mostrar(secuencia2);
+
+IEnumerable<double> secuencia3 = secuencia2.Select( n => n / 2.0);
+Mostrar(secuencia3);
+
+void Mostrar<T>(IEnumerable<T> secuencia)
+{
+  foreach (T elemento in secuencia)
+  {
+    Console.Write(elemento + " ");
+  }
+  Console.WriteLine();
+}
+
+
+--- program.cs --- // opción 2
+// Es muy comun usar LINQ con inferencia de tipos (con la palabra clave var) para simplificar escritura 
+// y lectura del código
+var lista = new List<string>() { "uno", "dos", "tres" };
+var secuencia1 = list.Select( st => "(" + st.ToUpper() + ")" );
+Mostrar(secuencia1);
+var secuencia2 = secuencia1.Select( st => st.Length);
+Mostrar(secuencia2);
+var secuencia3 = secuencia2.Select( n => n / 2.0);
+Mostrar(secuencia3);
+
+--- program.cs --- // opción 3
+// si nos interesara mostrar sólamente la secuencia 3, podemos hacerlo de la siguiente manera, utilizando la interfaz fluida (fluent API)
+var lista = new List<string>() { "uno", "dos", "tres" };
+
+var secuencia = Lista.Select(st => "(" + st.ToUpper() + ")")
+                .Select(st => st.Length)
+                .Select(n => n / 2.0);
+
