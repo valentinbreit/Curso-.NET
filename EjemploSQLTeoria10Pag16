@@ -1,0 +1,24 @@
+--- program.cs ---
+using Escuela;
+
+//  a esto se le llama Code First
+using (var context = new EscuelaContext())
+{
+  context.Database.EnsureCreated();
+}
+
+
+using (var context = new EscuelaContext())
+{
+  Console.WriteLine("-- Tabla Alumnos --");
+  foreach (var a in context.Alumnos)
+  {
+    Console.WriteLine($"{a.Id} {a.Nombre}");
+  }
+
+  Console.WriteLine("-- Tabla Exámenes --")
+  foreach (var e in context.Examenes)
+  {
+    Console.WriteLine($"{e.Id} {e.Materia} {e.Nota}");
+  }
+}
