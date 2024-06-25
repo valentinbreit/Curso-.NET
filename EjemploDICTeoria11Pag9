@@ -1,0 +1,16 @@
+---- Program.cs ----
+using DiContainer;
+// agregamos la siguiente directiva using
+using Microsoft.Extensions.DependencyInjection;
+
+// registramos los servicios y contruimos el proovedor, por ende la clase ProveedorServicios ya no es necesaria
+var servicios = new ServiceCollection();
+servicios.AddTransient<ILogger, LoggerConsola>();
+servicios.AddTransient<IServicioX, ServicioX>();
+var proveedor = servicios.BuildServiceProvider();
+
+var servicioX = proveedor.GetService<IServicioX>();
+servicioX?.Ejecutar();
+
+var logger = proveedor.GetService<ILogger>();
+logger?.Log("Fin del programa");
