@@ -1,0 +1,12 @@
+@page "/hola"
+<h1>Hola @nombre.ToUpper()</h1>
+<p>
+El doble de 5 es @(5*2) y la sumatoria de
+1 a 100 es @Sumatoria(100).
+</p>
+
+<!-- Veremos que en esta seccion de @code podemos escribir todo el codigo necesario en c#-->
+@code{
+  string nombre = "Matias";
+  int Sumatoria(int n) => Enumerable.Range(1,n).Sum();
+}
