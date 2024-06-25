@@ -1,0 +1,4 @@
+@page "/hola" 
+<!-- veremos en la url cuando lo abramos que este sera la ruta que indicamos --> 
+
+<h1> Hola mundo </h1>
