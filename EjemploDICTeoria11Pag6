@@ -1,0 +1,9 @@
+--- Program.cs ---
+using DiContainer;
+
+var proveedor = new ProveedorServicios();
+var servicioX = proveedor.GetSevicioX();
+servicioX.Ejecutar();
+
+var logger = proveedor.GetLogger();
+logger.Log("Fin del programa");
