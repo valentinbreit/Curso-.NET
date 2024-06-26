@@ -1,0 +1,50 @@
+--- Persona.cs ---
+namespace HiBlazor.Entidades;
+
+class Persona
+{
+  public string Nombre = { get; set; } = "";
+  public string Apellido = { get; set; } = "";
+  public int? Edad { get; set;}
+
+  // de momento vamos a crear nosotros una lista para mostrar cómo se vería en la página
+  public static List<Persona> GetLista()
+  {
+    return new List<Persona>(){
+      new Persona() {Nombre="Matias",Apellido="Gonzales", Edad=39},
+      new Persona() {Nombre="Juan",Apellido="Perez", Edad=39}
+    }
+  }
+}
+
+
+--- Hi.razor ---
+@page "/hi"
+<h1>Listado de personas</h1>
+<ul>
+  @foreach (var p in lista)
+  {
+    <li>@p.Apellido, @p.Nombre (@p.Edad)</li>
+  }
+</ul>
+
+<!-- Esto nos brinda un lugar para poder agregar a más eprsonas a nuestra lista -->
+<input placeholder="Nombre" @bind="p.Nombre" /><br>
+<input placeholder="Apellido" @bind="p.Apellido" /><br>
+<input type="number" placeholder="Edad" @bind="p.Edad" /><br>
+<button @onclick="Agregar">Agregar</button>
+
+
+@code {
+ List<Persona> lista = Persona.GetLista();
+ Persona p = new Persona();
+ void Agregar()
+ {
+   lista.Add(p);
+   p = new Persona();
+ }
+}
+
+
+--- _Import.razor ---
+@using HiBlazor.Entidades
