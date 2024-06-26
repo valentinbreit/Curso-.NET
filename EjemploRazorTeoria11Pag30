@@ -1,0 +1,20 @@
+--- Index.razor ---
+@page "/"
+<Hi/>
+
+
+--- Hi.razor ---
+@page "/hi"
+<button @onclick="Cambiar> Mostar / Ocultar </button>
+
+@if (EsVisible)
+{
+  <h1> Hola @nombre.ToUpper()</h1>
+}
+@code{
+  string nombre = "Matias";
+  bool EsVisible = true;
+  void Cambiar(){
+    EsVisible = !EsVisible;
+  }
+}
