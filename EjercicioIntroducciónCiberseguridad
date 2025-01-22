@@ -1,0 +1,39 @@
+// Este código es vulnerable porque las entradas del usuario (username y password) se concatenan directamente en la consulta SQL. Un atacante podría inyectar código SQL malicioso, como:
+// ' OR '1'='1' --, lo que podría derivar en el acceso no autorizado a la base de datos.
+
+
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Ingrese su nombre de usuario:");
+        string username = Console.ReadLine();
+
+        Console.WriteLine("Ingrese su contraseña:");
+        string password = Console.ReadLine();
+
+        string connectionString = "Data Source=server_name;Initial Catalog=database_name;Integrated Security=True";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            string query = "SELECT * FROM Users WHERE Username = '" + username + "' AND Password = '" + password + "'";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                Console.WriteLine("Inicio de sesión exitoso.");
+            }
+            else
+            {
+                Console.WriteLine("Credenciales incorrectas.");
+            }
+        }
+    }
+}
