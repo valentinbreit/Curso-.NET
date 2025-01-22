@@ -1,0 +1,42 @@
+using System;
+using System.Data.SqlClient;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Ingrese su nombre de usuario:");
+        string username = Console.ReadLine();
+
+        Console.WriteLine("Ingrese su contraseña:");
+        string password = Console.ReadLine();
+
+        string connectionString = "Data Source=server_name;Initial Catalog=database_name;Integrated Security=True";
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            string query = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Username", username);
+            command.Parameters.AddWithValue("@Password", password);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                Console.WriteLine("Inicio de sesión exitoso.");
+            }
+            else
+            {
+                Console.WriteLine("Credenciales incorrectas.");
+            }
+        }
+    }
+}
+Cambios Realizados
+Uso de parámetros:
+Se reemplazaron las concatenaciones directas por parámetros (@Username y @Password) para evitar que las entradas del usuario se interpreten como parte del comando SQL.
+Método AddWithValue:
+Este método asocia las variables username y password con los parámetros en la consulta.
